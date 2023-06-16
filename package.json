@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Jaydeepjk22/user-form-frontEnd/issues"
   },
-  "homepage": "https://github.com/Jaydeepjk22/user-form-frontEnd#readme"
+  "homepage": "https://github.com/Jaydeepjk22/user-form-frontEnd#readme",
+  "dependencies": {
+    "react-router-dom": "^6.13.0"
+  }
 }
