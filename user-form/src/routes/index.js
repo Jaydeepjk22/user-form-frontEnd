@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Container, Typography } from "@mui/material";
 import FormPage from "../components/FormPage";
 import SubmittedFormsPage from "../components/SubmittedFormsPage";
 
-const Routes = () => {
+const AppRoutes = () => {
   const [forms, setForms] = useState([]);
 
   const handleSubmitForm = async (formData) => {
     try {
-      const response = await fetch("/users", {
+      const response = await fetch("http://localhost:3000/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -31,14 +31,16 @@ const Routes = () => {
 
   return (
     <Router>
-      <Switch>
-        <Route exact path="/">
-          <FormPage handleSubmit={handleSubmitForm} />
-        </Route>
-        <Route path="/submitted">
-          <SubmittedFormsPage forms={forms} />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route
+          path="/"
+          element={<FormPage handleSubmit={handleSubmitForm} />}
+        />
+        <Route
+          path="/submitted"
+          element={<SubmittedFormsPage forms={forms} />}
+        />
+      </Routes>
       <Container maxWidth="sm" style={{ marginTop: "2rem" }}>
         <Typography align="center">
           <Link to="/">Submit Form</Link> |{" "}
@@ -49,4 +51,4 @@ const Routes = () => {
   );
 };
 
-export default Routes;
+export default AppRoutes;
