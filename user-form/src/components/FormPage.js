@@ -47,13 +47,11 @@ const FormPage = ({ handleSubmit }) => {
   };
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12}>
+    <Grid container justifyContent="center">
+      <Grid item xs={12} sm={6} md={4} lg={3}>
         <Typography variant="h4" align="center" gutterBottom>
           User Form
         </Typography>
-      </Grid>
-      <Grid item xs={12}>
         <form onSubmit={handleFormSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
